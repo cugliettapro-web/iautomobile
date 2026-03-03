@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparateur — iAutomobile</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── COMPARATEUR SPÉCIFIQUE ── */
+
+    /* Filtres sticky */
+    .filters-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+      background: rgba(249,249,247,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      padding: 16px 0;
+    }
+
+    .filters-bar__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 160px;
+    }
+
+    .filter-group label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+    }
+
+    .filter-group select,
+    .filter-group input[type="range"] {
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 10px;
+      background: #fff;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      color: #1A1A1A;
+      outline: none;
+      transition: border-color 0.2s;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .filter-group select:focus,
+    .filter-group input[type="range"]:focus {
+      border-color: #2E7D32;
+    }
+
+    input[type="range"] {
+      padding: 4px 0 !important;
+      border: none !important;
+      width: 100%;
+      accent-color: #1A1A1A;
+    }
+
+    .slider-value {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #1A1A1A;
+      text-align: right;
+    }
+
+    /* Vehicle select + add */
+    .filter-vehicle {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .filter-vehicle select {
+      flex: 1;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 10px;
+      background: #fff;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      color: #1A1A1A;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    /* Chips */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px 0 0;
+      width: 100%;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1A1A1A;
+      color: #F9F9F7;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .chip__remove {
+      cursor: pointer;
+      opacity: 0.6;
+      font-size: 0.9rem;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+
+    .chip__remove:hover {
+      opacity: 1;
+    }
+
+    .chips-empty {
+      font-size: 0.82rem;
+      color: #aaa;
+      padding: 6px 0;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .comparator-main {
+      padding: 48px
